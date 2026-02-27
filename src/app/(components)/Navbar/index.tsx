@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React from 'react';
 import { Search, Settings, Bell, Menu, Sun, Moon } from 'lucide-react'; // Sửa cách import icon
 import Link from 'next/link';
 import { useAppDispatch, useAppSelector } from '@/app/redux';
@@ -17,7 +17,7 @@ const Navbar = () => {
             <Menu className ="h-8 w-8 dark:text-white"></Menu>
           </button>
         )}
-        <div className="relative flex h-min w-[200px]">
+        <div className="relative flex h-min w-[200px] md:w-[300px]">
           <Search className="absolute left-[12px] top-1/2 h-5 w-5 -translate-y-1/2 transform cursor-pointer text-gray-500 dark:text-white" />
           <input 
             type="search" 
@@ -28,7 +28,7 @@ const Navbar = () => {
       </div>
 
       {/* 2. Bên phải: Icons thông báo và cài đặt */}
-      <div className="flex items-center">
+      <div className="flex items-center gap-2 md:gap-5">
         <button onClick={() => dispatch(setIsDarkMode(!isDarkMode))} className={ 
           isDarkMode
           ? `rounded p-2 dark:hover:bg-gray-700`
