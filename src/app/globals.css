@@ -6,6 +6,7 @@
   --color-dark-bg: #101214;
   --color-dark-secondary: #1d1f21;
   --color-dark-tertiary: #3b3d40;
+  --color-gray-50: #f9fafb;
 }
 
 /* DÒNG QUAN TRỌNG NHẤT: Định nghĩa lại biến dark để nhận diện class .dark */
@@ -14,9 +15,8 @@
 html, body {
   height: 100%;
   width: 100%;
-  /* Bắt buộc phải có transition để thấy hiệu ứng đổi màu mượt mà */
   transition: background-color 0.2s ease-in-out;
-  @apply bg-white text-gray-900;
+  @apply bg-white dark:bg-black;
 }
 
 /* Ép body đổi màu khi thẻ html có class .dark */
