@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext", 
+    "target": "ESNext",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "resolveJsonModule": true, // Bắt buộc để đọc các file .json trong seedData
+    
+  
+    "lib": ["ESNext"],
+    "types": ["node"], 
+
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleDetection": "force"
+  },
+  /* Bao gồm cả thư mục prisma để chạy file seed.ts */
+  "include": ["src/**/*", "prisma/**/*.ts"], 
+  "exclude": ["node_modules"]
+}
