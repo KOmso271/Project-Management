@@ -6,12 +6,14 @@ import Link from 'next/link'; // Import Link từ Next.js
 import { usePathname } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/app/redux';
 import { setIsSidebarCollapsed } from '@/state';
+import { useGetProjectsQuery } from '@/state/api';
 
 const Sidebar = () => { 
     const [showProject, setShowProject] = useState(true);
     const [showPriority, setShowPriority] = useState(true);
+    const{data: projects} = useGetProjectsQuery();
     const dispatch = useAppDispatch();
-     const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
+    const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
 
     const sidebarClassNames = `fixed flex flex-col h-full justify-between shadow-xl transition-all duration-300 z-40 dark:bg-black bg-white ${isSidebarCollapsed ? 'w-0 hidden' : 'w-64'}`;
 
@@ -63,6 +65,15 @@ const Sidebar = () => {
                     {showProject ? (<ChevronUp className= "h-5 w-5"/>) : (<ChevronDown className= "h-5 w-5"/>)}
                 </button>
                 {/* Project List */}
+                {showProject && projects?.map((project) => (
+                    <SidebarLink
+                        key={project.id}
+                        icon={Briefcase}
+                        label={project.name}
+                        href={`/projects/${project.id}`}
+                    />
+                ))
+                  }
                 {/* Priority Links */}
                 <button onClick={() => setShowPriority((prev)=> !prev)}
                 className = "flex w-full items-center justify-between px-8 py-3 text-gray-500 ">
