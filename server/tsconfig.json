@@ -7,7 +7,7 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "resolveJsonModule": true, // Bắt buộc để đọc các file .json trong seedData
+    "resolveJsonModule": true, 
     
   
     "lib": ["ESNext"],
