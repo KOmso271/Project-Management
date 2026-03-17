@@ -7,7 +7,7 @@ dotenv.config();
 
 const connectionString = `${process.env.DATABASE_URL}`;
 const pool = new pg.Pool({ connectionString });
-const adapter = new PrismaPg(pool);
+const adapter = new PrismaPg(pool as any);
 
 // Khởi tạo một instance duy nhất cho toàn bộ dự án
 export const prisma = new PrismaClient({ adapter });

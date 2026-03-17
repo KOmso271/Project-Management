@@ -7,7 +7,7 @@ import "dotenv/config"; //  đọc DATABASE_URL từ file .env
 
 const connectionString = `${process.env.DATABASE_URL}`;
 const pool = new pg.Pool({ connectionString });
-const adapter = new PrismaPg(pool);
+const adapter = new PrismaPg(pool as any);
 const prisma = new PrismaClient({ adapter }); // Truyền adapter vào đây
 
 async function deleteAllData(orderedFileNames: string[]) {
